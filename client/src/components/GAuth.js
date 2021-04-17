@@ -1,33 +1,39 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { signIn, signOut } from '../actions';
 
+const GAuth = props => {
 
-const GAuth = () => {
     const [auth, setAuth] = useState(null);
-    const [isSignedIn, setSignedIn] = useState(null);
+    // const [isSignedIn, setSignedIn] = useState(false);
 
     useEffect(()=>{
         window.gapi.load('client:auth2', () => {
             window.gapi.client.init({
                 clientId: '120407185805-pocds6c5807qppjh4qabn9gn8o83g21q.apps.googleusercontent.com',
                 scope: 'email'
-            }).then(() => {
+            })
+            .then(() => {    
                 setAuth(window.gapi.auth2.getAuthInstance());
-                if (auth) {
-                    setSignedIn(auth.isSignedIn.get());
-                    // to handle the signout even if from browser-console
-                    auth.isSignedIn.listen(() => setSignedIn(auth.isSignedIn.get()));
-                }
+                onAuthChange(auth.isSignedIn.get());
+                // to handle the signout even if from browser-console
+                auth.isSignedIn.listen(onAuthChange);
+                // if (auth) {
+                //     onAuthChange(auth.isSignedIn.get());
+                //     // to handle the signout even if from browser-console
+                //     auth.isSignedIn.listen(onAuthChange());
+                // }
             })
         });
-    }, [isSignedIn]);
-    
+    }, []);
+
     // to handle the signout even if from browser-console
-    // const onAuthChange = () => {
-    //     setSignedIn(auth.isSignedIn.get());
-    // }
+    const onAuthChange = isSignedIn => {
+        isSignedIn ? props.signIn(auth.currentUser.get().getId()) : props.signOut();
+    }
 
     const renderAuthButton = () => {
-       if (isSignedIn === true) {
+       if (props.isSignedIn === true) {
             return (
                 <button className="ui red google button" onClick={() => auth.signOut()}>
                     <i className="google icon" />
@@ -51,4 +57,10 @@ const GAuth = () => {
     );
 };
 
-export default GAuth;
+const mapStateToProps = state => {
+    return {
+        isSignedIn: state.auth.isSignedIn
+    };
+};
+
+export default connect(mapStateToProps, { signIn, signOut }) (GAuth);
