@@ -42,7 +42,7 @@ class GAuth extends React.Component {
              return (
                  <button className="ui green google button" onClick={()=> this.auth.signIn()}>
                      <i className="google icon" />
-                     Sign In with Google
+                     Sign In
                  </button>
              );
          }
