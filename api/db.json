@@ -15,6 +15,18 @@
       "description": "Testing edit/delete stream button with userId",
       "userId": "117427714945721768609",
       "id": 3
+    },
+    {
+      "title": "Testing create stream",
+      "description": "Testing create stream using create stream button",
+      "userId": "117427714945721768609",
+      "id": 4
+    },
+    {
+      "title": "Test redirection to default",
+      "description": "Testing redirection to default using programmatic logic",
+      "userId": "117427714945721768609",
+      "id": 5
     }
   ]
 }
