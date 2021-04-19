@@ -33,6 +33,12 @@
       "description": "Testing if application break after creating StreamForm component creation",
       "userId": "117427714945721768609",
       "id": 6
+    },
+    {
+      "title": "Test edit button",
+      "description": "Testing edit stream functionality",
+      "userId": "117427714945721768609",
+      "id": 7
     }
   ]
 }
