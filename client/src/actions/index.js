@@ -25,8 +25,11 @@ export const signOut = () => {
 
 // action creator for create stream, uses redux thunk
 export const createStream = formValues => {
-    return async (dispatch) => {
-        const response = await streams.post('/streams', formValues);
+    return async (dispatch, getState) => {
+        const { userId } = getState().auth;
+        console.log("userId is " + JSON.stringify(userId));
+        
+        const response = await streams.post('/streams', { ...formValues, userId });
 
         dispatch({type: CREATE_STREAM, payload: response.data})
     };

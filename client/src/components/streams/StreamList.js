@@ -8,6 +8,15 @@ class StreamList extends React.Component {
         this.props.fetchStreams();
     }
 
+    renderAdmin(stream) {
+        if(stream.userId === this.props.currentUserId) {
+            return (
+                <div>
+                    EDIT/DELETE
+                </div>
+            )
+        }
+    }
     renderList() {
         return this.props.streams.map(stream => {
             return (
@@ -19,6 +28,7 @@ class StreamList extends React.Component {
                             {stream.description}
                         </div>
                     </div>
+                    { this.renderAdmin(stream) }
                 </div>
             )
         })
@@ -36,9 +46,10 @@ class StreamList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log("state: " + JSON.stringify(state));
+    // console.log("state: " + JSON.stringify(state));
     return {
-        streams: Object.values(state.streams)
+        streams: Object.values(state.streams),
+        currentUserId: state.auth.userId
     };
 };
 
