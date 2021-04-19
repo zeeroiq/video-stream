@@ -4,6 +4,16 @@
       "title": "My Stream",
       "description": "This is just a testing stream",
       "id": 1
+    },
+    {
+      "title": "Test",
+      "description": "Another test stream",
+      "id": 2
+    },
+    {
+      "title": "test2",
+      "description": "check for id",
+      "id": 3
     }
   ]
 }
