@@ -27,6 +27,12 @@
       "description": "Testing redirection to default using programmatic logic",
       "userId": "117427714945721768609",
       "id": 5
+    },
+    {
+      "title": "Test after StreamForm create",
+      "description": "Testing if application break after creating StreamForm component creation",
+      "userId": "117427714945721768609",
+      "id": 6
     }
   ]
 }
