@@ -11,12 +11,6 @@
       "id": 2
     },
     {
-      "title": "Test for userId",
-      "description": "Testing edit/delete stream button with userId",
-      "userId": "117427714945721768609",
-      "id": 3
-    },
-    {
       "title": "Testing create stream",
       "description": "Testing create stream using create stream button",
       "userId": "117427714945721768609",
@@ -38,12 +32,6 @@
       "title": "Test edit button",
       "description": "Testing edit stream functionality with props.stream using lodash",
       "id": 7
-    },
-    {
-      "title": "Test edit after fix of #20",
-      "description": "TEST SUCCESS: Using patch to update the content of the streamEdit ",
-      "userId": "117427714945721768609",
-      "id": 8
     }
   ]
 }
